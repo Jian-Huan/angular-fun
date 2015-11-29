@@ -1,3 +1,13 @@
 <div class="container">
     This is albums page.
+    <table class="table">
+        <tr>
+            <td><h3>All Albums</h3></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="album in albums">
+            <td>Title</td>
+            <td>{{album.title}}</td>
+        </tr>
+    </table>
 </div>

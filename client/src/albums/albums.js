@@ -7,7 +7,4 @@ angular
                 templateUrl: '/src/albums/albums.tpl.html',
                 controller: 'AlbumsController'
             });
-    })
-    .controller('AlbumsController', function () {
-
     });
