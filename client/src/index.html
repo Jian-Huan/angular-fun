@@ -14,10 +14,10 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li ui-sref-active="active">
                         <a ui-sref="home">Home</a>
                     </li>
-                    <li>
+                    <li ui-sref-active="active">
                         <a ui-sref="albums">Albums</a>
                     </li>
                 </ul>
@@ -27,7 +27,7 @@
     <div ui-view></div>
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
-    <script src="/src/components/angular-ui-router.js"></script>
+    <script src="/components/angular-ui-router.js"></script>
     <script src="/src/app.js"></script>
     <script src="/src/home/home.js"></script>
     <script src="/src/albums/albums.js"></script>
