@@ -13,9 +13,17 @@ function albumModel($resource) {
         getAllAlbums: getAllAlbums
     };
 
+    // http://stackoverflow.com/questions/16186887/angularjs-creating-objects-that-map-to-rest-resources-orm-style
     function getAllAlbums() {
-        // ToDo: use Album class instance
-        return albumResource.query();
+        return albumResource.query(function (albums) {
+            var albumsList = [];
+
+            angular.forEach(albums, function(album) {
+                this.push(new Album(album));
+            }, albumsList);
+
+            return albumsList;
+        });
     }
 
     function Album(data) {
