@@ -4,8 +4,8 @@ angular
     .module('albums')
     .controller('AlbumsController', AlbumsController);
 
-AlbumsController.$inject = ['$scope', 'albumModel'];
+AlbumsController.$inject = ['$scope', 'AlbumCollection'];
 
-function AlbumsController($scope, albumModel) {
-    $scope.albums = albumModel.getAllAlbums();
+function AlbumsController($scope, AlbumCollection) {
+    $scope.albums = AlbumCollection.get();
 }
