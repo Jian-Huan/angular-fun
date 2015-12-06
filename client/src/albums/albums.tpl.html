@@ -2,7 +2,11 @@
     This is albums page.
     <table class="table">
         <tr>
-            <td><h3>All Albums</h3></td>
+            <td>
+                <h3>All Albums</h3>
+                <button type="button" class="btn btn-default" ng-click="sortByTitle()">Sort by Title</button>
+                <button type="button" class="btn btn-default" ng-click="resetOrder()">Reset</button>
+            </td>
             <td></td>
         </tr>
         <tr ng-repeat="album in albums">

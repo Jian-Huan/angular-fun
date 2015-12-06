@@ -7,10 +7,30 @@ function AlbumCollection($resource) {
     var AlbumCollection = $resource('http://jsonplaceholder.typicode.com/albums');
 
     return {
-        get: get
+        get: get,
+        resetOrder: get,
+        sortByTitle: sort,
     };
 
     function get() {
         return AlbumCollection.query();
+    }
+
+    function sort() {
+        return AlbumCollection.query(function(albums) {
+            return albums.sort(compareTitles);
+        });
+    }
+
+    function compareTitles(a, b) {
+        if (a.title < b.title) {
+            return -1;
+        }
+
+        if (a.title > b.title) {
+            return 1;
+        }
+
+        return 0;
     }
 }
