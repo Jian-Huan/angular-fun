@@ -3,9 +3,8 @@ angular
     .factory('AlbumCollection', AlbumCollection);
 
 function AlbumCollection($resource) {
-    var AlbumCollection = $resource(
-        'http://jsonplaceholder.typicode.com/albums' // ToDo: configure this as a constant
-    );
+    // ToDo: configure this as a constant
+    var AlbumCollection = $resource('http://jsonplaceholder.typicode.com/albums');
 
     return {
         get: get
