@@ -14,6 +14,6 @@ function AlbumsController($scope, AlbumCollection) {
     };
 
     $scope.resetOrder = function() {
-        $scope.albums = AlbumCollection.resetOrder();
+        $scope.albums = AlbumCollection.get();
     };
 }

@@ -11,7 +11,6 @@ function AlbumCollection($resource, $cacheFactory) {
 
     return {
         get: get,
-        resetOrder: get,
         sortByTitle: sort
     };
 
