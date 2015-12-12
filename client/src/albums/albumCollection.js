@@ -2,14 +2,17 @@ angular
     .module('models.album', [])
     .factory('AlbumCollection', AlbumCollection);
 
-function AlbumCollection($resource) {
+function AlbumCollection($resource, $cacheFactory) {
+    var albumCollectionCache = $cacheFactory('AlbumCollection');
     // ToDo: configure this as a constant
-    var AlbumCollection = $resource('http://jsonplaceholder.typicode.com/albums');
+    var AlbumCollection = $resource('http://jsonplaceholder.typicode.com/albums', {}, {
+        'query': { method: 'GET', cache: albumCollectionCache, isArray: true }
+    });
 
     return {
         get: get,
         resetOrder: get,
-        sortByTitle: sort,
+        sortByTitle: sort
     };
 
     function get() {
