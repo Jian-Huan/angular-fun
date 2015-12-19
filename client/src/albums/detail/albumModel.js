@@ -1,31 +1,19 @@
 angular
-    .module('models.album', [])
+    .module('models.album')
     .factory('albumModel', albumModel);
 
 function albumModel($resource) {
-    var albumResource = $resource(
+    var Album = $resource(
         // ToDo: configure this as a constant
         'http://jsonplaceholder.typicode.com/albums/:id',
         {id: '@id'}
     );
 
     return {
-        getAllAlbums: getAllAlbums
+        findById: getAlbumById
     };
 
     // http://stackoverflow.com/questions/16186887/angularjs-creating-objects-that-map-to-rest-resources-orm-style
-    function getAllAlbums() {
-        return albumResource.query(function (albums) {
-            var albumsList = [];
-
-            angular.forEach(albums, function(album) {
-                this.push(new Album(album));
-            }, albumsList);
-
-            return albumsList;
-        });
-    }
-
     function Album(data) {
         angular.extend(this, data);
     }
@@ -36,4 +24,8 @@ function albumModel($resource) {
          return carResource.save(carData);
          }*/
     };
+
+    function getAlbumById(id) {
+        return Album.get({id: id});
+    }
 }
