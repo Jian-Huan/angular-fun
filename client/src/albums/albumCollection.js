@@ -2,12 +2,13 @@ angular
     .module('models.album', [])
     .factory('AlbumCollection', AlbumCollection);
 
-function AlbumCollection($resource, $cacheFactory) {
-    var albumCollectionCache = $cacheFactory('AlbumCollection');
+function AlbumCollection($resource) {
     // ToDo: configure this as a constant
-    var AlbumCollection = $resource('http://jsonplaceholder.typicode.com/albums', {}, {
-        'query': { method: 'GET', cache: albumCollectionCache, isArray: true }
-    });
+    var AlbumCollection = $resource(
+        'http://jsonplaceholder.typicode.com/albums/:id',
+        {id: '@id'},
+        {'query': {method: 'GET', cache: true, isArray: true}}
+    );
 
     return {
         get: get,
@@ -19,7 +20,7 @@ function AlbumCollection($resource, $cacheFactory) {
     }
 
     function sort() {
-        return AlbumCollection.query(function(albums) {
+        return AlbumCollection.query(function (albums) {
             return albums.sort(compareTitles);
         });
     }

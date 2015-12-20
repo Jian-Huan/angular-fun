@@ -9,10 +9,10 @@
             <td></td>
         </tr>
         <tr ng-repeat="album in albums">
-            <td>{{album.title}}</td>
-            <td>
+            <td ng-show="album.id">{{album.title}}</td>
+            <td ng-show="album.id">
                 <a class="btn btn-primary" ui-sref="detail({id: album.id})">View</a>
-                <a class="btn btn-danger">Delete</a>
+                <a class="btn btn-danger" ng-click="delete(album)">Delete</a>
             </td>
         </tr>
     </table>

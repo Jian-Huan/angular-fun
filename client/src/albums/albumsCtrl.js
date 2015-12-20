@@ -13,7 +13,11 @@ function AlbumsController($scope, AlbumCollection) {
         $scope.albums = AlbumCollection.sortByTitle();
     };
 
-    $scope.resetOrder = function() {
+    $scope.resetOrder = function () {
         $scope.albums = AlbumCollection.get();
+    };
+
+    $scope.delete = function (album) {
+        album.$delete();
     };
 }
