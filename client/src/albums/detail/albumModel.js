@@ -2,10 +2,12 @@ angular
     .module('models.album')
     .factory('albumModel', albumModel);
 
-function albumModel($resource) {
+albumModel.$inject = ['$resource', 'api'];
+
+function albumModel($resource, api) {
     var Album = $resource(
         // ToDo: configure this as a constant
-        'http://jsonplaceholder.typicode.com/albums/:id',
+        api.domain + api.album,
         {id: '@id'}
     );
 
