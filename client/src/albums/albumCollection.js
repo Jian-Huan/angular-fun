@@ -5,7 +5,6 @@ angular
 AlbumCollection.$inject = ['$resource', 'api'];
 
 function AlbumCollection($resource, api) {
-    // ToDo: configure this as a constant
     var AlbumCollection = $resource(
         api.domain + api.album,
         {id: '@id'},

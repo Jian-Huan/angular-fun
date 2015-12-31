@@ -6,7 +6,6 @@ albumModel.$inject = ['$resource', 'api'];
 
 function albumModel($resource, api) {
     var Album = $resource(
-        // ToDo: configure this as a constant
         api.domain + api.album,
         {id: '@id'}
     );
